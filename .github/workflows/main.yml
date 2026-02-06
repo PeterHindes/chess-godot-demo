@@ -1,0 +1,36 @@
+name: Main
+
+on: push
+env:
+  GODOT_VERSION: 4.2
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout current branch
+        uses: actions/checkout@v3
+
+      - name: Install Godot
+        uses: CapsCollective/godot-actions/install-godot@v1.0
+        with:
+          godot-version: ${{ env.GODOT_VERSION }}
+          install-templates: true
+        id: install-godot
+
+      - name: Open Godot editor for reimport
+        run: ${{ steps.install-godot.outputs.godot-executable }} --editor --headless --quit || true
+
+      - name: Build and upload artifacts for all platforms
+        uses: CapsCollective/godot-actions/build-godot@v1.0
+        with:
+          godot-executable: ${{ steps.install-godot.outputs.godot-executable }}
+          build-dir: ./builds
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        if: github.ref_type == 'tag'
+        with:
+          files: |
+            ./builds/windows/windows.zip
+            ./builds/linux/linux.tar
+            ./builds/macos/macos.tar
