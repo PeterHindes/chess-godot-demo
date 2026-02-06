@@ -14,48 +14,56 @@
     <header>
         <nav>
             <div class="logo">Chess Godot Demo</div>
+            <div class="nav-links">
+                <a href="https://github.com/PeterHindes/chess-godot-demo" target="_blank" class="nav-github">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
         </nav>
         <section class="hero">
             <div class="hero-content">
                 <h1>Master the Board.</h1>
                 <p class="tagline">Experience chess like never before with stunning Godot-powered graphics and seamless cross-platform play.</p>
+                
                 <div id="latest-release" class="featured-download">
-                    <!-- Latest release buttons will be injected here -->
                     <p>Loading latest version...</p>
+                </div>
+
+                <div class="header-archive">
+                    <label for="version-select">Previous Versions:</label>
+                    <select id="version-select">
+                        <option value="">Choose a version...</option>
+                    </select>
+                </div>
+                
+                <div id="selected-release-info" class="release-info-box">
+                    <!-- Info for selected version will appear here -->
                 </div>
             </div>
         </section>
     </header>
 
     <main>
-        <section class="features">
-            <div class="feature-card">
+        <section class="features bento-grid">
+            <div class="feature-card bento-1">
                 <i class="fas fa-bolt"></i>
                 <h3>Lightning Fast</h3>
                 <p>Built with Godot 4 for peak performance on all devices.</p>
             </div>
-            <div class="feature-card">
+            <div class="feature-card bento-2">
                 <i class="fas fa-brain"></i>
                 <h3>Advanced AI</h3>
-                <p>Challenge yourself against our custom neural-network based engine.</p>
+                <p>Challenge yourself against our custom engine.</p>
             </div>
-            <div class="feature-card">
+            <div class="feature-card bento-3">
                 <i class="fas fa-desktop"></i>
                 <h3>Beautiful UI</h3>
-                <p>A modern, sleek interface designed for focus and clarity.</p>
+                <p>A modern, sleek interface designed for focus.</p>
             </div>
-        </section>
-
-        <section id="archives">
-            <h2>Release Archives</h2>
-            <div class="archive-selector">
-                <label for="version-select">Select an older version:</label>
-                <select id="version-select">
-                    <option value="">Choose a version...</option>
-                </select>
-            </div>
-            <div id="selected-release-info" class="release-info-box">
-                <!-- Info for selected version will appear here -->
+            <div class="feature-card bento-4">
+                <i class="fas fa-chess"></i>
+                <h3>Pro Rules</h3>
+                <p>Full implementation of all FIDE chess regulations.</p>
             </div>
         </section>
     </main>
@@ -63,11 +71,6 @@
     <footer>
         <div class="footer-content">
             <p>&copy; 2026 Chess Godot Demo. Made with <i class="fas fa-heart"></i> and Godot.</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-discord"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-            </div>
         </div>
     </footer>
     <script src="script.js"></script>
