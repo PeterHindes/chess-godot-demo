@@ -1,6 +1,12 @@
 name: Main
 
-on: push
+on:
+  push:
+    branches:
+      - main
+    # tags:
+    #   - v*
+    # handled by release below
 env:
   GODOT_VERSION: 4.6
 jobs:
