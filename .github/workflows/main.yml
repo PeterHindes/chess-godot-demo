@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Godot
-        uses: PeterHindes/godot-actions/install-godot@v3.1
+        uses: PeterHindes/godot-actions/install-godot@v3.1.1
         with:
           godot-version: ${{ env.GODOT_VERSION }}
           install-templates: true
@@ -21,7 +21,7 @@ jobs:
         run: ${{ steps.install-godot.outputs.godot-executable }} --editor --headless --quit || true
 
       - name: Build and upload artifacts for all platforms
-        uses: PeterHindes/godot-actions/build-godot@v3.1
+        uses: PeterHindes/godot-actions/build-godot@v3.1.1
         with:
           godot-executable: ${{ steps.install-godot.outputs.godot-executable }}
           build-dir: ./builds
